@@ -14,7 +14,8 @@ export class TableCrudComponent implements OnInit  {
   p3: string = "";
   constructor(private route: Router) {}
   ngOnInit(): void {
-    axios.get('https://8f652dd8-e67b-4d9b-a03a-fe63fe7857df.mock.pstmn.io/get').then(response => {
+    this.pressureList = []
+    axios.get('http://26.182.81.185:8080/main/getAllEntity1').then(response => {
       for (let i = 0; i < response.data.list.length; i++) {
         this.pressureList.push(response.data.list[i]);
       }
@@ -32,20 +33,15 @@ export class TableCrudComponent implements OnInit  {
     console.log(this.idNum)
   }
 
-  change(id: number,p1: string, p2: string,p3: string) {
-    this.pressureList = []
-    axios.post('https://8f652dd8-e67b-4d9b-a03a-fe63fe7857df.mock.pstmn.io/post', {
-      id: id,
+  change(p1: string, p2: string,p3: string) {
+
+    axios.post('http://26.182.81.185:8080/main/addEntity1', {
       p1: p1,
       p2: p2,
       p3: p3
     })
-      .then(response => {
-        for (let i = 0; i < response.data.list.length; i++) {
-          this.pressureList.push(response.data.list[i]);
-        }
-      })
 
+    this.ngOnInit()
 
     this.p1 = ""
     this.p2 = ""

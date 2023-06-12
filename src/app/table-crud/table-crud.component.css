@@ -11,10 +11,13 @@ th{
 }
 
 .TableName{
-  text-align: center;
+  display: flex;
+  margin-left: 50%;
 }
 .modalWindow{
   margin-right: auto;
   margin-left: auto;}
 
-
+.buttonAdd{
+  margin-left: 55%;
+}

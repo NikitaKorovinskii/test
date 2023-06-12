@@ -10,10 +10,8 @@
             Page
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">page 1</a></li>
-            <li><a class="dropdown-item" href="#">page 2</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">exit</a></li>
+            <li><a class="dropdown-item" href="/page1">page 1</a></li>
+            <li><a class="dropdown-item" href="/page2">page 2</a></li>
           </ul>
         </li>
       </ul>
@@ -24,7 +22,14 @@
 
 
 <div class="TableName">
- <h3>Table</h3>
+  <div class="textTable">
+    <h3>Table</h3>
+  </div>
+  <div class="buttonAdd">
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Добавить</button>
+  </div>
+
+
 </div>
 <table mat-table  class="mat-elevation-z8">
   <tbody>
@@ -34,16 +39,13 @@
     <th>p2</th>
     <th>p3</th>
     <th>Действие</th>
-    <th>Действие</th>
   </tr>
   <tr *ngFor="let n of pressureList">
     <td>{{n.id}}</td>
     <td>{{n.p1}}</td>
     <td>{{n.p2}}</td>
     <td>{{n.p3}}</td>
-    <td>
-      <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="edit(n.id)">Редактировать</button>
-    </td>
+
     <td>
       <button type="button" class="btn btn-danger" (click)="remove(n.id)">Удалить</button>
     </td>
@@ -62,18 +64,18 @@
       </div>
       <div class="modal-body modalWindow">
         p1
-        <input placeholder="{{pressureList[idNum].p1}}" [(ngModel)]="p1" >
+        <input [(ngModel)]="p1" >
         <br>
         <br>
         p2
-        <input placeholder="{{pressureList[idNum].p2}}" [(ngModel)]="p2">
+        <input  [(ngModel)]="p2">
         <br><br>
         p3
-        <input placeholder="{{pressureList[idNum].p3}}" [(ngModel)]="p3">
+        <input [(ngModel)]="p3">
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary modalWindow" data-bs-dismiss="modal" (click)="change(pressureList[idNum].id,p1,p2,p3)">Сохранить изменения</button>
+        <button type="button" class="btn btn-primary modalWindow" data-bs-dismiss="modal" (click)="change(p1,p2,p3)">Сохранить изменения</button>
       </div>
     </div>
   </div>
