@@ -10,17 +10,14 @@
             Page
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/page1">page 1</a></li>
-            <li><a class="dropdown-item" href="/page2">page 2</a></li>
+            <li><a class="dropdown-item" href="/page1">Page 1</a></li>
+            <li><a class="dropdown-item" href="/page2">Page 2</a></li>
           </ul>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-
-
-
 <div class="TableName">
   <div class="textTable">
     <h3>Table</h3>
@@ -28,8 +25,6 @@
   <div class="buttonAdd">
     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Добавить</button>
   </div>
-
-
 </div>
 <table mat-table  class="mat-elevation-z8">
   <tbody>
@@ -40,19 +35,17 @@
     <th>p3</th>
     <th>Действие</th>
   </tr>
-  <tr *ngFor="let n of pressureList">
+  <tr *ngFor="let n of entityList">
     <td>{{n.id}}</td>
     <td>{{n.p1}}</td>
     <td>{{n.p2}}</td>
     <td>{{n.p3}}</td>
-
     <td>
       <button type="button" class="btn btn-danger" (click)="remove(n.id)">Удалить</button>
     </td>
   </tr>
   </tbody>
 </table>
-
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -75,13 +68,8 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary modalWindow" data-bs-dismiss="modal" (click)="change(p1,p2,p3)">Сохранить изменения</button>
+        <button type="button" class="btn btn-primary modalWindow" data-bs-dismiss="modal" (click)="addEntity(p1,p2,p3)">Сохранить изменения</button>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-
